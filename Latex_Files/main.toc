@@ -1,0 +1,33 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Outline of RNA-seq Analysis Pipeline}{1}{section.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Comparison of Transcript Quantification Tools}{2}{section.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Useful Commands}{3}{section.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}bash/zsh}{3}{subsection.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}git}{4}{subsection.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Software Installation}{4}{section.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Building From Scratch}{4}{subsection.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.1}Prerequisite Software}{4}{subsubsection.4.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.2}Preprocessing Software}{5}{subsubsection.4.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Building Using Conda}{6}{subsection.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Installing a Pre-Built Conda Enviroment}{6}{subsection.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Software Implementation}{6}{section.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Pre-Processing Automation Using Bash Scripts}{6}{section.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Defferential Expression Analysis using R or Python}{9}{section.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}References}{9}{section.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}Description of FastQC}{9}{appendix.A}

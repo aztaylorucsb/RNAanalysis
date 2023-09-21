@@ -1,0 +1,554 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lachaise Assignment
+% LaTeX Template
+% Version 1.0 (26/6/2018)
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Marion Lachaise & François Févotte
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+\documentclass{article}
+\input{structure.tex} % Include the file specifying the document structure and custom commands
+
+\usepackage{indentfirst}
+
+\usepackage{indentfirst}
+\usepackage{setspace}
+
+\usepackage{comment}
+
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{RNAanalysis.bib}
+
+
+%----------------------------------------------------------------------------------------
+%	INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{\LARGE RNA-seq Analysis Setup and Prerequisites} % Title of the assignment
+
+\author{\Large Alec Taylor\\ \normalsize \texttt{aztaylor@ucsb.edu}} % Author name and email address
+
+\date{University of California, Santa Barbara --- \today} % University, school and/or department name(s) and a date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+\setlength{\parindent}{24pt}
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+\singlespacing
+\tableofcontents
+\singlespacing
+
+\section{Outline of RNA-seq Analysis Pipeline}
+\begin{enumerate}
+	\setlength\itemsep{-0.5em}
+	\item Retrieving reference genomes and transcriptomes.
+	\begin{itemize}
+		\item There are several ways to retrieve reference material, the one we are going to focus on is the SRA-toolkit.
+		\item The Sequence Read Archive (SRA) is a National Center for Biotechnology Information (NCBI) database\\ which is part of the International Nucleotide Sequence Database Collaboration (INSDC).
+		\item It grants access to experimental sequencing data which is considered suitable for public distribution through run accessions numbers (typically in the for SRR*).
+		\item Run accession numbers are obtained by searching the \href{https://www.ncbi.nlm.nih.gov/sra}{SRA website}. 
+	\end{itemize}
+	\item Read trimming.
+	\begin{itemize}
+		\item Trimming is necessary to clip sequencing addapters and bad reads (you may notice Ns in place of bad reads from illumina FastQ files).
+		\item This operation is used on the fastaQ files obtained from next generation sequencing (NGS) runs.
+		\item We will use \href{http://www.usadellab.org/cms/?page=trimmomatic}{Trimmomatic} \cite{Bolger:2014aa}, an illumina focused trimming tool.
+	\end{itemize}
+	\item Read QC on Raw FastQ files.
+	\begin{itemize}
+		\item Read Quality Control typically assesses the quality of read mapping by creating mapping and coverage statistics.
+		\item Aditionally Variant Calling and Read Calibration could current for errors from sequencing or transcription. Since we are not interested in classifying transcripts, we can can recalibrate these errors so they are not penalized and under represented in our Analysis/
+	\end{itemize}
+	\item Read quantification.
+	\begin{itemize}
+		\item Quantification can be done using several tools. Examples of popular quantification software are provided below.
+		\begin{enumerate}
+			\item \href{https://www.cs.cmu.edu/~ckingsf/software/sailfish/faq.html}{Sailfish}\cite{Patro:2014aa}
+			\item \href{https://combine-lab.github.io/salmon}{Salmon}\cite{Patro:2017aa}
+			\item \href{https://pachterlab.github.io/kallisto/}{Kallisto}\cite{Bray:2016aa}
+			\item \href{https://deweylab.github.io/RSEM/}{RSEM}\cite{Li:2011aa}
+		\end{enumerate}
+		\item All of the tools listed above are fairly similar in terms of accuracy and performance, with differences mainly occurring with fringe scenarios \cite{Zhang:2017aa}.
+		\item Sailfish, Salmon, and Kallisto are alignment independent tools, while RSEMs, when used in\\ transcript quantification is alignment-dependent.
+		\item The primary factors to consider when choosing between the highlighted tools is therefore the presence of the fringe scenarios (this topic is explored in more detail in the following section) and runtime and computational capability.
+		\item Generally, alignment independent methods are faster and require less computational resources than alignment-dependent methods, while maintaining similar performance profiles \cite{Zhang:2017aa}.
+		\item It's worth noting that the developers tend to insist that their software is the top performer in their respective papers. If we look at comparison studies using simulated data where the ground truth is known, each shows it's own unique and often insignificant differences.
+		\item Generally, researches tend to choose either Salmon or Kallisto due to their speed advantage and accuracy, or sailfish for it's simplicity.
+		\item With this pipeline we will consider both Salmon and Kallisto.	
+	\end{itemize}
+	\item{Remove Duplicates}
+	\item {Base Recalibration}
+\end{enumerate}
+
+
+\section{Comparison of Transcript Quantification Tools}
+\indent Generally, transcript quantification tools can be divided into too categories, alignment-dependent or alignment\\-independent tools.
+Considering was main driving motivation for the development of align-independent methods, another significant motivation was the advancement of transcript-level quantification. The need for transcript-level quantification came with the realization that RNA could encode for two or more exons
+(called isoforms) through eukaryotic alternative splicing. Therefore, annotated genes could be represented in various exons (gene isoforms).
+With gene-level quantification reads are mapped to the genome, and isoforms will either be quantified based on gene-mapping or discarded. Align-independent allows for quantification of individual isoforms. Since transcript-level quantification attemps to quantify isoforms and determine which genes are responsible for their formation , giving more
+insight into true gene experession. Unfortunately, this problem tends to be difficult, so much so that the algorithms rely on statistical algorithms to determine the probability of a read matching an gene i 
+
+\indent  Sailfish, Salmon, and Kallisto are examples of alignment-independent tools. 
+They utilize psuedoalignment to improve speed by exploiting the idea that precise alignments aren't necessary to accuratly quantify reads. 
+This is in contrast alignment-dependent tools, such as RSEM, which rely on pre-alliged outputs from external tools (e.g. STAR). 
+The additional time and computational requirments pre-alignment has resulted in alignment-dependent tools falling out of favor.
+For this reason we willSalmon has two run modes, an alignment-dependent mode and an alignment independent mode.
+In terms of performance, all of the above quantification tools exhibit similarly high accuracy and robustness \cite{Zhang:2017aa}. The one caveat is when dealing with low-abundance or short reads, with 
+Between the alignment-free 
+
+\begin{info} % Information block
+	While Salmon, Sailfish, and Kalisto are primarily viewed as alignment-independent quantification tool, they can conduct alignment-dependent Quantification.
+\end{info}
+
+%----------------------------------------------------------------------------------------
+%Technical background and set-up
+%----------------------------------------------------------------------------------------
+\section{Useful Commands}
+\subsection{bash/zsh}
+\begin{enumerate}
+	\item cd (change directory) - Changes the current working directory in terminal. Can take relative or full paths. For example if you are currently in the home directory (~) and would like to move to the documents directory, you could use either:
+	\begin{script}
+		
+		$ cd Documents
+		or
+		$ cd /Users/<your username>/Documents
+	
+		# where "/" represents the root directory containing all other directories.
+
+	\end{script}
+	\item ls 
+	\begin{script}
+		
+			$ cd Documents
+			or
+			$ cd /Users/<your username>/Documents
+	
+			where "/" represents the root directory containing all other directories.
+		
+	\end{script}
+	\item sudo
+	\begin{script}
+		
+			$ cd Documents
+			or
+			$ cd /Users/<your username>/Documents
+	
+			where "\/" represents the root directory containing all other directories.
+		
+	\end{script}
+	\item curl
+	\begin{script}
+		
+			$ cd Documents
+			or
+			$ cd /Users/<your username>/Documents
+	
+			where "/" represents the root directory containing all other directories.
+		
+	\end{script}
+	\item mv 
+	\begin{script}
+		
+			$ cd Documents
+			or
+			$ cd /Users/<your username>/Documents
+	
+			where "/" represents the root directory containing all other directories.
+		
+	\end{script}
+	\item rm 
+	\begin{script}
+		
+			$ cd Documents
+			or
+			$ cd /Users/<your username>/Documents
+	
+			where "/" represents the root directory containing all other directories.
+		
+	\end{script}
+	\item sudo
+
+
+\end{enumerate}
+\subsection{git}
+
+%------------------------------------------------
+
+\section{Software Installation}
+
+\subsection{Building From Scratch}
+\subsubsection{Prerequisite Software}
+\begin{enumerate}
+	\item Xcode Release Candidate 15 and Homebrew.
+	\begin{info}
+		Xcode Command Line Tools can also be installed in the macOS App Store, it comes with the Xcode app. To most, it's perefereable to only have the Xcode Developer Command Line Tools, because the Xcode app/IDE is generally recieved poorly.
+
+		Another alternative is to download the most recent version of \href{https://developer.apple.com/download/all/}{The most recent version of Xcode Developer}. You will need an icloud account to sign in. 
+	\end{info}
+	\begin{script}
+	# The argument -p or --print-path can be used to see any instances of xcode installed on your machine.
+	$ xcode-select -p
+	/Applications/Xcode.app/Contents/Developer # If the app is installed.
+	# or
+	$ xcode-select -p
+	/Library/Developer/CommandLineTools # If you only have the command line tools installed.
+	# and 
+	$ xcode-select -p
+	xcode-select: error: unable to get active developer directory, use `sudo xcode-select --switch path/to/Xcode.app` to set one (or see `man xcode-select` # If neither the the app or command line tools are installed. 
+
+	# If you have the app installed, you should check if the command line tools are installed:
+	$ ls /Library/Developer/ 
+	CommandLineTools # If installed.
+	ls: /Library/Developer: No such file or directory # If not installed.
+
+	# In the case where you have only the app installed or neither, you should install the developer command line tools.
+	# This can be accomplished in two ways:
+	# Way 1
+	$ xcode-select --install
+	$ xcode-select -p
+	$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	Password:
+
+	# Which is actually installing Homebrew (a package manager), but installs Xcode Developer Command Line Tools as a dependency.
+
+	# Way 2
+	$ xcode-select --install
+	xcode-select: note: install requested for command line developer tools.
+
+	# The first option to download the command tools is nice because Homebrew is a popular and useful package manager for macOS. The disadvantage is that this is a large package, especially when bundled with Xcode Developer Tools, and therefore it takes a lot of time to download and install. 
+	# Item It is similar to conda, pip, or apt and other GNU/Linux package managers, and we will use it in this project.
+
+	# Now confirm you have the command line developer tools/
+	$ xcode-select -p
+	/Library/Developer/CommandLineTools
+	\end{script}
+
+	\begin{info}
+		You will be prompted with a pop-up window to complete installation.
+	\end{info}
+
+	\item Mac Ports v2.8.1. This can also be installed on their \href{https://ports.macports.org/}{website}.
+
+	\begin{itemize}
+		\item You will want to complete the following installation in your "Software/" directory, so that it is a part of your user path.
+		\item Find a folder to keep your software folder (e.g ~/Documents/RNAanalysis) and run:
+	\begin{script}
+	$ mkdir Software.
+	$ cd Software.
+	\end{script}
+	\end{itemize}
+
+	\begin{script}
+	# Macports downloads as a zip file, so instead of saving the zip file to disk and then unziping it, you can pass
+	# the package directly to tar to unzip using the pipe operator "|"
+	$ sudo curl -L https://github.com/macports/macports-base/releases/download/v2.8.1/MacPorts-2.8.1.tar.gz | tar xj
+  	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  	0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+	1	00 21.4M  100 21.4M    0     0  3017k      0  0:00:07  0:00:07 --:--:-- 3201k
+
+	$ cd MacPorts-2.8.1/
+	$ ./configure CC=gcc # The out put of this is going to be a large list of checks and configuration commands and checks.
+	#if the configuration file ran correctly, the final line of the output should be:
+	config.status: creating src/config.h
+	# If you get a filepath/directory error, it may be because there are unescaped spaces in the file path.
+
+	$ make # Thsis will also give a large output with the last line being something like:
+	gzip -c portundocumented.7 > portundocumented.7.gz
+	* Warning: Using pre-generated man pages only.
+	* asciidoc, xsltproc (port libxslt) and docbook-xsl-nons are required to generate man pages from source.
+	
+	$ sudo make install	# The last lines of output for this should be:
+	Congratulations, you have successfully installed the MacPorts system. To get the Portfiles and update the system, add /opt/local/bin to your PATH and run:
+
+	sudo port -v selfupdate
+
+	Please read "man port", the MacPorts guide at https://guide.macports.org/ and Wiki at https://trac.macports.org/ for full documentation.
+
+	Installing the "mpstats" port will enable submission of anonymous information about your system and installed ports to our database for statistical purposes: <https://ports.macports.org/>	
+
+	# Finally, you can delete the installation directory.
+	$ cd ../
+	$ rm -r MacPorts-2.8.1
+	\end{script}
+	
+	\item wget v1.21.4
+		
+	\begin{script}
+	$ sudo port install wget
+	\end{script}
+	\item Java Development Kit 20 (jdk-20)
+	\item R v3.5.1
+	\item git v2.39.2
+	\item autoconf v2.7.1
+\end{enumerate}
+
+
+\subsubsection{Preprocessing Software}
+\begin{enumerate}
+	\item\begin{script}
+		
+			$ cd Software/opt/bin/
+			$ git clone https://github.com/s-andrews/FastQC/
+		
+	\end{script}
+	
+\end{enumerate}
+
+
+\begin{enumerate}
+	\item Trimmomatic version 0.39
+	\item 
+\end{enumerate}
+
+\subsection{Building Using Conda}
+
+\subsection{Installing a Pre-Built Conda Enviroment}
+
+\section{Software Implementation}
+\begin{center}
+	\begin{minipage}{0.5\linewidth} % Adjust the minipage width to accomodate for the length of algorithm lines
+		\begin{algorithm}[H]
+			\KwIn{$(a, b)$, two floating-point numbers}  % Algorithm inputs
+			\KwResult{$(c, d)$, such that $a+b = c + d$} % Algorithm outputs/results
+			\medskip
+			\If{$\vert b\vert > \vert a\vert$}{
+				exchange $a$ and $b$ \;
+			}
+			$c \leftarrow a + b$ \;
+			$z \leftarrow c - a$ \;
+			$d \leftarrow b - z$ \;
+			{\bf return} $(c,d)$ \;
+			\caption{\texttt{FastTwoSum}} % Algorithm name
+			\label{alg:fastTwoSum}   % optional label to refer to
+		\end{algorithm}
+	\end{minipage}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	Automation
+%----------------------------------------------------------------------------------------
+
+\section{Pre-Processing Automation Using Bash Scripts}
+
+
+% File contents
+\subsection*{Creating a script:}
+\begin{itemize}
+	\item We first ned to create a bash file witht he extension ".sh". You can do this in any text editor but vim is a nice built in option. For details on how to use vim see appendix (?).
+	\begin{script}
+	$ vim organize_fastaQ_files.sh
+	\end{script}
+	\item This will change your terminal to look like:
+	\begin{vim}
+	~
+	~
+	~
+	~
+	"format_fastaqs.sh" [new]
+	\end{vim}
+	\item We now need to tell the script which interpretor we would like to use (bash in this case, but you can use interpreters for other interpreted languages such as python or R.)
+	\item To tell the script which interpreter we want to use we use a shebang, which is comprised of \#! and the full path to the interpreter.
+	\begin{vim}
+	#! /bin/bash
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+	"format_fastaqs.sh" 1L, 13B
+	\end{vim}
+\end{itemize}
+
+\subsection*{Commands}
+\begin{itemize}
+	\item Commands in Bash Scripts are the same as those you would use in a Bash commandline. For instance mkdir makes a directory whether it's added to a script or used directly in the commandline.
+	\begin{vim}
+	#! /bin/bash
+	mkdir extracted_fastaqs # Makes a directory for us to place our fastaQ files in.                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+	"format_fastaqs.sh" 1L, 13B	
+	\end{vim}
+\end{itemize}
+
+
+\subsection*{Variables}
+\begin{itemize}
+	\item
+	\begin{verbatim}
+	In bash variable are typically declared in all caps and called with the "$" operator. For 
+	instance we could create a variable named FASTAQ_FP = 
+	./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/* and call it with $FASTAQ_FP.
+	\end{verbatim}
+	\begin{vim}
+	#! /bin/bash
+	mkdir extracted_fastaqs # Makes a directory for us to place our fastaQ files in.                                                                                                                                                                                                                               
+	FASTAQ_FP=./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/*                                                                                                                                                                                                                              
+	echo $FASTAQ_FP                                                                                                                                                                                                                              
+	~
+	~
+	"format_fastaqs.sh" 1L, 13B	
+	\end{vim}
+	\begin{warn}
+		Note that if you place spaces around the assignment operator "=", bash will interpret this as a command instead of a variable declaration. 
+	\end{warn}
+	\item Now we can run the exit out of vim with by pressing the ESC key and entering ":wq" for write quite, and finally run the script:
+	\begin{script}
+	$ bash format_fastaqs.sh # Here we explicitly tell the commandline to use the bash interpreter, which we don't need to do.
+	./RNAanalysis/FASTQ_Generation_2023-09-06_06_48_25Z-691456767/* 
+
+	# Because we added a shebang, we can instead use:
+	$ ./bash format_fastaqs.sh
+	zsh: permission denied: ./format_fastaqs.sh
+	# Note that we don't have permision to exuce the file. We can check permissions with ls -l.
+	
+	$ ls -l
+	-rw-r--r--   1 alec  staff   154 Sep 19 12:57 format_fastaqs.sh 
+	# The long version of ls shows us that the user only has read(r) and write(w) privilages. We can change that
+	
+	$ chmod u+x format_fastaqs.sh # The argument "u+x" adds execution privilages to the user.
+	$ ls -l
+	-rwxr--r--   1 alec  staff   154 Sep 19 12:57 format_fastaqs.sh #The user now has read, write, and execution(x) privilages
+	
+	$ ./format_fastaqs.sh
+	./RNAanalysis/FASTQ_Generation_2023-09-06_06_48_25Z-691456767/*
+	\end{script}
+	\begin{warn}
+		Be carefull with your use of chmod. If used incorrectly, it could allow anyone to execute files on your machine.
+	\end{warn}
+\end{itemize}
+\subsection*{For Loops}
+\begin{itemize}
+	\item Looping in Bash is very similar to looping in other scripting languages.
+	\item The main components are:
+	\begin{enumerate}
+		\item "for" to initialize the for loop.
+		\item "in" to define the iterable to iterate over.
+		\item "do" to define the command to execute.
+		\item "done" to close the for looop.
+	\end{enumerate}
+	\item For loops can also be nested as with other languages. In this example, we will us nested for loops to access each file within the subdirectories.
+\begin{vim}
+	#! /bin/bash
+
+	FASTAQ_FP=./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/*
+	for fp in $FASTAQ_FP; do
+			for f in $fp/*; do
+					echo "$f"
+			done
+	done
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                               
+	~                                                                                                                                                                                                                               
+	"format_fastaqs.sh" 8L, 144B	
+\end{vim}
+\begin{script}
+	$ ./format_fastaqs.sh
+	./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/ATEY090523-NC_1_L001/NC_1_L001_R1_001.fastq.gz
+	./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/ATEY090523-NC_1_L002/NC_1_L002_R1_001.fastq.gz
+	./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/ATEY090523-NC_1_L003/NC_1_L003_R1_001.fastq.gz
+	./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/ATEY090523-NC_1_L004/NC_1_L004_R1_001.fastq.gz
+	./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/ATEY090523-NC_3_L001/NC_3_L001_R1_001.fastq.gz
+	...
+\end{script}
+\end{itemize}
+
+\subsection*{Conditional Statements}
+\begin{itemize}
+	\item Similar to for loop, conditional statements in bash are akin to other scripting languages:
+	\item They consist of:
+	\begin{enumerate}
+		\item The "test" statement to initialize the conditional test.
+		\item The "\&\&" operator to establish an action if the test returns true.
+		\item The "||" operator to establish an action if the test returns false.
+	\end{enumerate}
+	\item In bash you can also use "[" and "]" inplace of test.
+	\begin{vim}
+	test -d "foo" && echo "foo is present" || echo "foo is not present"	
+	[ -d "Latex_Files" ] && echo "Latex_Files is present" || echo "Latex_Files is not present"
+	~
+	~
+	~
+	~
+	"test.sh" 2L, 159B
+	\end{vim}
+	\begin{script}
+	$./test.sh  
+	foo is not present
+	Latex_Files is present	
+	\end{script}
+\end{itemize}
+\subsection*{Putting it together}
+Now with a few extra commands (see Appendix(?)) we can write our final fastaq oragnization script.
+
+
+\begin{file}[organize\_fastaqs.sh]
+\begin{lstlisting}[language=bash, 
+	basicstyle=\ttfamily\small,
+	breaklines=true,tabsize=2,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},]
+[ -d "organized_fastaqs" ] && echo "Directory: organized_fastaqs exists" || mkdir organized_fastaqs 
+FASTAQ_FP=./FASTQ_Generation_2023-09-06_06_48_25Z-691456767/*
+for fp in $FASTAQ_FP; do
+	for f in $fp/*; do
+		base="$(basename $f)"
+		echo "Copying: $base"
+		[ -f ./organized_fastaqs/$base ] && echo "$base is already organized!" ||  cp $f ./organized_fastaqs/$base
+	done
+done
+\end{lstlisting}
+\end{file}
+
+%----------------------------------------------------------------------------------------
+%	Analysis
+%----------------------------------------------------------------------------------------
+
+
+% Command-line "screenshot"
+\begin{script}
+	
+		$ chmod +x hello.py
+		$ ./hello.py
+
+		Hello World!
+	
+\end{script}
+
+\section{Defferential Expression Analysis using R or Python}
+
+\section{References}
+\printbibliography
+
+%----------------------------------------------------------------------------------------
+\appendix
+
+\section{Description of FastQC}
+%----------------------------------------------------------------------------------------
+\end{document}

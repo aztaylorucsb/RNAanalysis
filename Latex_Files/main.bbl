@@ -1,0 +1,340 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{Li:2011aa}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a9c8728e355996d027a7e56b60820a18}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+        {{hash=c7bc86681d31d6c2df5012d468a2c89a}{%
+           family={Dewey},
+           familyi={D\bibinitperiod},
+           given={Colin\bibnamedelima N.},
+           giveni={C\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{ced0d6926c074772f3b62959fbc7359e}
+      \strng{fullhash}{ced0d6926c074772f3b62959fbc7359e}
+      \strng{bibnamehash}{ced0d6926c074772f3b62959fbc7359e}
+      \strng{authorbibnamehash}{ced0d6926c074772f3b62959fbc7359e}
+      \strng{authornamehash}{ced0d6926c074772f3b62959fbc7359e}
+      \strng{authorfullhash}{ced0d6926c074772f3b62959fbc7359e}
+      \field{labelalpha}{LD11}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{RNA-Seq is revolutionizing the way transcript abundances are measured. A key challenge in transcript quantification from RNA-Seq data is the handling of reads that map to multiple genes or isoforms. This issue is particularly important for quantification with de novo transcriptome assemblies in the absence of sequenced genomes, as it is difficult to determine which transcripts are isoforms of the same gene. A second significant issue is the design of RNA-Seq experiments, in terms of the number of reads, read length, and whether reads come from one or both ends of cDNA fragments.}
+      \field{isbn}{1471-2105}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{number}{1}
+      \field{title}{RSEM: accurate transcript quantification from RNA-Seq data with or without a reference genome}
+      \field{volume}{12}
+      \field{year}{2011}
+      \field{pages}{323}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/1471-2105-12-323
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1186/1471-2105-12-323
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1186/1471-2105-12-323
+      \endverb
+    \endentry
+    \entry{Bolger:2014aa}{article}{}
+      \name{author}{3}{}{%
+        {{hash=0e7d6c60fe69e0900e1f1ca7e46a9309}{%
+           family={Bolger},
+           familyi={B\bibinitperiod},
+           given={Anthony\bibnamedelima M},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=3dcc76f5d42d7950271a25c7a248e14d}{%
+           family={Lohse},
+           familyi={L\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e1abaac47b7afb5e628a32b4eb78b78c}{%
+           family={Usadel},
+           familyi={U\bibinitperiod},
+           given={Bjoern},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{11}{%
+        {Department Metabolic Networks, Max Planck Institute of Molecular Plant Physiology, Am M{ü}hlenberg 1, 14476 Golm,Institut f{ü}r Biologie I, RWTH Aachen, Worringer Weg 3, 52074 Aachen}%
+        {Institute of Bio-}%
+        {Geosciences: Plant Sciences, Forschungszentrum J{ü}lich, Leo-Brandt-Stra{ß}e, 52425 J{ü}lich, GermanyDepartment Metabolic Networks, Max Planck Institute of Molecular Plant Physiology, Am M{ü}hlenberg 1, 14476 Golm,Institut f{ü}r Biologie I, RWTH Aachen, Worringer Weg 3, 52074 Aachen}%
+        {Institute of Bio-}%
+        {Geosciences: Plant Sciences, Forschungszentrum J{ü}lich, Leo-Brandt-Stra{ß}e, 52425 J{ü}lich, Germany.; Department Metabolic Networks, Max Planck Institute of Molecular Plant Physiology, Am M{ü}hlenberg 1, 14476 Golm,Institut f{ü}r Biologie I, RWTH Aachen, Worringer Weg 3, 52074 Aachen}%
+        {Institute of Bio-}%
+        {Geosciences: Plant Sciences, Forschungszentrum J{ü}lich, Leo-Brandt-Stra{ß}e, 52425 J{ü}lich, Germany.; Department Metabolic Networks, Max Planck Institute of Molecular Plant Physiology, Am M{ü}hlenberg 1, 14476 Golm,Institut f{ü}r Biologie I, RWTH Aachen, Worringer Weg 3, 52074 Aachen}%
+        {Institute of Bio-}%
+        {Geosciences: Plant Sciences, Forschungszentrum J{ü}lich, Leo-Brandt-Stra{ß}e, 52425 J{ü}lich, GermanyDepartment Metabolic Networks, Max Planck Institute of Molecular Plant Physiology, Am M{ü}hlenberg 1, 14476 Golm,Institut f{ü}r Biologie I, RWTH Aachen, Worringer Weg 3, 52074 Aachen}%
+        {Institute of Bio-}%
+        {Geosciences: Plant Sciences, Forschungszentrum J{ü}lich, Leo-Brandt-Stra{ß}e, 52425 J{ü}lich, Germany.}%
+      }
+      \strng{namehash}{aa8c897bf6034b1cdf1db4585d47bcc7}
+      \strng{fullhash}{aa8c897bf6034b1cdf1db4585d47bcc7}
+      \strng{bibnamehash}{aa8c897bf6034b1cdf1db4585d47bcc7}
+      \strng{authorbibnamehash}{aa8c897bf6034b1cdf1db4585d47bcc7}
+      \strng{authornamehash}{aa8c897bf6034b1cdf1db4585d47bcc7}
+      \strng{authorfullhash}{aa8c897bf6034b1cdf1db4585d47bcc7}
+      \field{labelalpha}{BLU14}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{MOTIVATION: Although many next-generation sequencing (NGS) read preprocessing tools already existed, we could not find any tool or combination of tools that met our requirements in terms of flexibility, correct handling of paired-end data and high performance. We have developed Trimmomatic as a more flexible and efficient preprocessing tool, which could correctly handle paired-end data. RESULTS: The value of NGS read preprocessing is demonstrated for both reference-based and reference-free tasks. Trimmomatic is shown to produce output that is at least competitive with, and in many cases superior to, that produced by other tools, in all scenarios tested. AVAILABILITY AND IMPLEMENTATION: Trimmomatic is licensed under GPL V3. It is cross-platform (Java 1.5+ required) and available at http://www.usadellab.org/cms/index.php?page=trimmomatic CONTACT: usadel@bio1.rwth-aachen.de SUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online.}
+      \field{issn}{1367-4811 (Electronic); 1367-4803 (Print); 1367-4803 (Linking)}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{8}
+      \field{number}{15}
+      \field{title}{Trimmomatic: a flexible trimmer for Illumina sequence data.}
+      \field{volume}{30}
+      \field{year}{2014}
+      \field{pages}{2114\bibrangedash 2120}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btu170
+      \endverb
+      \warn{\item Entry 'Bolger:2014aa' (RNAanalysis.bib): Invalid format '2014 Aug 1' of date field 'date' - ignoring}
+    \endentry
+    \entry{Patro:2014aa}{article}{}
+      \name{author}{3}{}{%
+        {{hash=eccda3e34049a4d8774491fdaa7fe7b0}{%
+           family={Patro},
+           familyi={P\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+        {{hash=247f872288b3538170ad4af386f04f2b}{%
+           family={Mount},
+           familyi={M\bibinitperiod},
+           given={Stephen\bibnamedelima M},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=597269818def1983b92e61a15057ccbe}{%
+           family={Kingsford},
+           familyi={K\bibinitperiod},
+           given={Carl},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{333eb6cf542e7233043dbf4008c6df29}
+      \strng{fullhash}{333eb6cf542e7233043dbf4008c6df29}
+      \strng{bibnamehash}{333eb6cf542e7233043dbf4008c6df29}
+      \strng{authorbibnamehash}{333eb6cf542e7233043dbf4008c6df29}
+      \strng{authornamehash}{333eb6cf542e7233043dbf4008c6df29}
+      \strng{authorfullhash}{333eb6cf542e7233043dbf4008c6df29}
+      \field{labelalpha}{PMK14}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A new algorithm speeds up the quantification of transcripts from RNA-seq data by doing away with read mapping.}
+      \field{isbn}{1546-1696}
+      \field{journaltitle}{Nature Biotechnology}
+      \field{number}{5}
+      \field{title}{Sailfish enables alignment-free isoform quantification from RNA-seq reads using lightweight algorithms}
+      \field{volume}{32}
+      \field{year}{2014}
+      \field{pages}{462\bibrangedash 464}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1038/nbt.2862
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/nbt.2862
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/nbt.2862
+      \endverb
+    \endentry
+    \entry{Bray:2016aa}{article}{}
+      \name{author}{4}{}{%
+        {{hash=b799b09bccd3cfe1ed7b2f3ad888b593}{%
+           family={Bray},
+           familyi={B\bibinitperiod},
+           given={Nicolas\bibnamedelima L},
+           giveni={N\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=8848f22226e467c29408c4f2ec737a44}{%
+           family={Pimentel},
+           familyi={P\bibinitperiod},
+           given={Harold},
+           giveni={H\bibinitperiod}}}%
+        {{hash=6ff0881f2279b7480fe665b5f4967143}{%
+           family={Melsted},
+           familyi={M\bibinitperiod},
+           given={P{á}ll},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1ee032a9471708ba39e310c625131ddc}{%
+           family={Pachter},
+           familyi={P\bibinitperiod},
+           given={Lior},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{45fcee6226c0bded1bf6e903bc331eb5}
+      \strng{fullhash}{e64651540db322ed04e3c3f3be6f603d}
+      \strng{bibnamehash}{45fcee6226c0bded1bf6e903bc331eb5}
+      \strng{authorbibnamehash}{45fcee6226c0bded1bf6e903bc331eb5}
+      \strng{authornamehash}{45fcee6226c0bded1bf6e903bc331eb5}
+      \strng{authorfullhash}{e64651540db322ed04e3c3f3be6f603d}
+      \field{labelalpha}{Bra+16}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A pseudoalignment-based method enables faster quantification and measurement of uncertainty in RNA-seq experiments.}
+      \field{isbn}{1546-1696}
+      \field{journaltitle}{Nature Biotechnology}
+      \field{number}{5}
+      \field{title}{Near-optimal probabilistic RNA-seq quantification}
+      \field{volume}{34}
+      \field{year}{2016}
+      \field{pages}{525\bibrangedash 527}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1038/nbt.3519
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/nbt.3519
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/nbt.3519
+      \endverb
+    \endentry
+    \entry{Patro:2017aa}{article}{}
+      \name{author}{5}{}{%
+        {{hash=eccda3e34049a4d8774491fdaa7fe7b0}{%
+           family={Patro},
+           familyi={P\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+        {{hash=a499d704ac416b56681f708f223ab1f0}{%
+           family={Duggal},
+           familyi={D\bibinitperiod},
+           given={Geet},
+           giveni={G\bibinitperiod}}}%
+        {{hash=44866f722899d1160da672593be18fc0}{%
+           family={Love},
+           familyi={L\bibinitperiod},
+           given={Michael\bibnamedelima I},
+           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=9083f32e0bfe16500e08ea4a9c143f05}{%
+           family={Irizarry},
+           familyi={I\bibinitperiod},
+           given={Rafael\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=597269818def1983b92e61a15057ccbe}{%
+           family={Kingsford},
+           familyi={K\bibinitperiod},
+           given={Carl},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{ed4b87952d927b27376d2e119dde7797}
+      \strng{fullhash}{193be2f3e84697da426242f37d3bac28}
+      \strng{bibnamehash}{ed4b87952d927b27376d2e119dde7797}
+      \strng{authorbibnamehash}{ed4b87952d927b27376d2e119dde7797}
+      \strng{authornamehash}{ed4b87952d927b27376d2e119dde7797}
+      \strng{authorfullhash}{193be2f3e84697da426242f37d3bac28}
+      \field{labelalpha}{Pat+17}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Salmon is a computational tool that uses sample-specific models and a dual-phase inference procedure to correct biases in RNA-seq data and rapidly quantify transcript abundances.}
+      \field{isbn}{1548-7105}
+      \field{journaltitle}{Nature Methods}
+      \field{number}{4}
+      \field{title}{Salmon provides fast and bias-aware quantification of transcript expression}
+      \field{volume}{14}
+      \field{year}{2017}
+      \field{pages}{417\bibrangedash 419}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1038/nmeth.4197
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/nmeth.4197
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/nmeth.4197
+      \endverb
+    \endentry
+    \entry{Zhang:2017aa}{article}{}
+      \name{author}{4}{}{%
+        {{hash=dab90d227b512e9cedb41532e46ba87a}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Chi},
+           giveni={C\bibinitperiod}}}%
+        {{hash=569e2d07ae65b5ff0a054a1b8113f361}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Baohong},
+           giveni={B\bibinitperiod}}}%
+        {{hash=75da48c7ac29da1f90f99d9116aa9a0e}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Lih-Ling},
+           giveni={L\bibinithyphendelim L\bibinitperiod}}}%
+        {{hash=1870560df7b24a463e6f273bc31b23b6}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Shanrong},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{f536892268348cdfbd6bd4ac693a33bb}
+      \strng{fullhash}{e716692f5ecdc74b51dd3bf978eba1b1}
+      \strng{bibnamehash}{f536892268348cdfbd6bd4ac693a33bb}
+      \strng{authorbibnamehash}{f536892268348cdfbd6bd4ac693a33bb}
+      \strng{authornamehash}{f536892268348cdfbd6bd4ac693a33bb}
+      \strng{authorfullhash}{e716692f5ecdc74b51dd3bf978eba1b1}
+      \field{labelalpha}{Zha+17}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Alternatively spliced transcript isoforms are commonly observed in higher eukaryotes. The expression levels of these isoforms are key for understanding normal functions in healthy tissues and the progression of disease states. However, accurate quantification of expression at the transcript level is limited with current RNA-seq technologies because of, for example, limited read length and the cost of deep sequencing.}
+      \field{isbn}{1471-2164}
+      \field{journaltitle}{BMC Genomics}
+      \field{number}{1}
+      \field{title}{Evaluation and comparison of computational tools for RNA-seq isoform quantification}
+      \field{volume}{18}
+      \field{year}{2017}
+      \field{pages}{583}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s12864-017-4002-1
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1186/s12864-017-4002-1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1186/s12864-017-4002-1
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

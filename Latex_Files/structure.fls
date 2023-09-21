@@ -1,0 +1,8 @@
+PWD /Users/alec/Library/CloudStorage/Box-Box/YeungLabUCSBShare/Alec Taylor/DOE/Translational Control/Experiments/p2x12-TimeSeriesRNA_GyrA_Knockdown/Latex Files/RNAanalysis_Setup
+INPUT /usr/local/texlive/2018/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/alec/Library/CloudStorage/Box-Box/YeungLabUCSBShare/Alec Taylor/DOE/Translational Control/Experiments/p2x12-TimeSeriesRNA_GyrA_Knockdown/Latex Files/RNAanalysis_Setup/structure.tex
+OUTPUT /Users/alec/Library/CloudStorage/Box-Box/YeungLabUCSBShare/Alec Taylor/DOE/Translational Control/Experiments/p2x12-TimeSeriesRNA_GyrA_Knockdown/Latex Files/RNAanalysis_Setup/structure.log
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm

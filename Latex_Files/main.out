@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Outline of RNA-seq Analysis Pipeline}{}% 1
+\BOOKMARK [1][-]{section.2}{Comparison of Transcript Quantification Tools}{}% 2
+\BOOKMARK [1][-]{section.3}{Useful Commands}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{bash/zsh}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{git}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Software Installation}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Building From Scratch}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Prerequisite Software}{subsection.4.1}% 8
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Preprocessing Software}{subsection.4.1}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Building Using Conda}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.3}{Installing a Pre-Built Conda Enviroment}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Software Implementation}{}% 12
+\BOOKMARK [1][-]{section.6}{Pre-Processing Automation Using Bash Scripts}{}% 13
+\BOOKMARK [1][-]{section.7}{Defferential Expression Analysis using R or Python}{}% 14
+\BOOKMARK [1][-]{section.8}{References}{}% 15
+\BOOKMARK [1][-]{appendix.A}{Description of FastQC}{}% 16
